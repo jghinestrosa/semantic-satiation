@@ -11,7 +11,7 @@
     </main>
     <footer>
       <a target="_blank" href="https://en.wikipedia.org/wiki/Semantic_satiation">About Semantic Satiation</a>
-      <a target="_blank" href="">About the project</a>
+      <a target="_blank" href="https://github.com/jghinestrosa/semantic-satiation">About the project</a>
       <a target="_blank" href="https://www.youtube.com/watch?v=0vv0ru44NQA">Bowl</a>
     </footer>
   </div>
