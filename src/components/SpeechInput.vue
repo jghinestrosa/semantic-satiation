@@ -1,7 +1,7 @@
 <template>
   <div class="text-to-speech">
     <div class="speech-input">
-      <input type="text" placeholder="Type something" class="input-text" autofocus v-model="textToSpeech" />
+      <input type="text" placeholder="Type something" class="input-text" autofocus v-model="textToSpeech" v-on:keyup.13="onEnter" />
       <div class="select-wrapper">
         <select id="lang" class="select-language" name="lang" v-model="language" :disabled="speaking">
           <option v-for="lang in languages" :key="lang" :value="lang">{{lang}}</option>
@@ -115,6 +115,16 @@ export default {
       window.speechSynthesis.pause();
       window.speechSynthesis.cancel();
       this.speaking = false;
+    },
+    onEnter() {
+      if (this.readyToSpeak) {
+        this.speak();
+        return;
+      }
+
+      if (this.speaking) {
+        this.stop();
+      }
     }
   }
 };
@@ -157,11 +167,12 @@ export default {
   right: 0.2em;
   display: inline-block;
   cursor: pointer;
+  color: black;
 }
 
 .select-language {
   border: none;
-  outline: none;
+  /* outline: none; */
   background: white;
   font-size: 0.8em;
   -moz-appearance: none;
@@ -172,6 +183,10 @@ export default {
   z-index: 2;
   background: transparent;
   height: 100%;
+}
+
+.select-language:hover, .select-wrapper:hover {
+  color: #2c3e50;
 }
 
 .select-language + svg {
@@ -190,7 +205,6 @@ export default {
 
 .button {
   height: 100%;
-  cursor: pointer;
   color: white;
   border: 0;
   transition-property: background;
@@ -199,6 +213,10 @@ export default {
   border-bottom-right-radius: 4px;
   padding: 0;
   width: 4em;
+}
+
+.button:not(:disabled) {
+  cursor: pointer;
 }
 
 .button-speak {
