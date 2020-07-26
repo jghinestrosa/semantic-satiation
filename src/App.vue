@@ -4,7 +4,7 @@
       <section class="content">
         <h1>Semantic Satiation</h1>
         <blockquote cite="https://en.wikipedia.org/wiki/Semantic_satiation">
-          <h2>A psychological phenomenon in which repetition causes a word or phrase to temporarily lose meaning for the listener<sup><a target="_blank" href="https://en.wikipedia.org/wiki/Semantic_satiation">[1]</a></sup></h2>
+          <h2>A psychological phenomenon in which repetition causes a word or phrase to temporarily lose meaning for the listener<sup><a target="_blank" href="https://en.wikipedia.org/wiki/Semantic_satiation">1</a></sup></h2>
         </blockquote>
         <SpeechInput />
       </section>
@@ -70,7 +70,7 @@ h1 {
 }
 
 h2 {
-  font-size: 0.7em;
+  font-size: 0.9em;
   text-align: center;
 }
 
