@@ -71,7 +71,7 @@ export default {
   data() {
     return {
       textToSpeech: '',
-      language: 'en-US',
+      language: '',
       voices: [],
       speaking: false
     };
@@ -85,6 +85,10 @@ export default {
       return !!this.textToSpeech && this.languages.length && !this.speaking;
     },
     languages() {
+      if (!this.voices.length) {
+        return [];
+      }
+
       const languages = this.voices.map(({ lang }) => lang);
       return languages
         .filter((language, index) => languages.indexOf(language) === index)
@@ -96,6 +100,15 @@ export default {
       }
 
       return this.voices.find(({ lang }) => lang === this.language);
+    }
+  },
+  watch: {
+    languages(value) {
+      if (!value.length) {
+        return;
+      }
+
+      this.language = value[0];
     }
   },
   methods: {
